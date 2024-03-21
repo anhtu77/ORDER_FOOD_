@@ -6,6 +6,7 @@ import 'package:project_order_food/locator.dart';
 import 'package:project_order_food/ui/base_app/base_controller.dart';
 import 'package:project_order_food/ui/base_app/base_table.dart';
 
+// Quản lý dữ liệu hiển thị trang chủ của người dùng
 class UHomeViewController extends BaseController {
   Api api = Api(BaseTable.product);
 

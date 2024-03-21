@@ -7,14 +7,11 @@ class ThemeStyle {
         primaryColor: AColor.primary,
         brightness: Brightness.light,
         buttonTheme: ButtonThemeData(
-          buttonColor: AColor.greenBold, //  <-- dark color
-          textTheme:
-              ButtonTextTheme.primary, //  <-- this auto selects the right color
+          buttonColor: AColor.greenBold,
+          textTheme: ButtonTextTheme.primary,
         ),
         backgroundColor: AColor.primary,
-        appBarTheme: AppBarTheme(
-          backgroundColor: AColor.greenBold
-        ),
+        appBarTheme: AppBarTheme(backgroundColor: AColor.greenBold),
         scaffoldBackgroundColor: AColor.primary,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         cardColor: AColor.cardColor);

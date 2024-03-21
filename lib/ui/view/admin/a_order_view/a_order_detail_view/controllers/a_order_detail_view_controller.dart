@@ -12,6 +12,7 @@ import 'package:project_order_food/ui/base_app/base_table.dart';
 import 'package:project_order_food/ui/view/common_view/loading_view/data_app.dart';
 import 'package:project_order_food/ui/widget/dialog/a_dialog.dart';
 
+// Quản lý chi tiết đơn đặt hàng
 class AOrderDetailViewController extends BaseController {
   final OrderModel order;
   AOrderDetailViewController({required this.order}) {
@@ -22,8 +23,10 @@ class AOrderDetailViewController extends BaseController {
 
   String? statusID;
 
+  // Trả về thông tin đơn hàng
   OrderModel get infoOrder => order;
 
+  // Trả về thông tin người dùng
   UserApp get infoUser => _infoUser;
 
   int get tongGia {
@@ -34,15 +37,17 @@ class AOrderDetailViewController extends BaseController {
     return value;
   }
 
+  // Danh sách chi tiết đơn hàng
   List<OrderDetailModel> get listOrderDetail =>
       data.map((e) => OrderDetailModel(e)).toList();
 
+  // Danh sách trạng thái của đơn hàng
   List<StatusOrder> get listStatus => locator<DataApp>().listStatusOdrer;
 
+  // Cập nhật trạng thái đơn hàng
   void updateStatus(String newID) async {
     Api api = Api(BaseTable.order);
-    await api
-        .updateDocument({FieldName.refID: newID}, order.id).then((value) {
+    await api.updateDocument({FieldName.refID: newID}, order.id).then((value) {
       if (value == null) {
         locator<GetNavigation>().openDialog(
             content: 'Câp nhật thông tin thành công',

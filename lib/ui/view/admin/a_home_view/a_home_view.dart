@@ -8,6 +8,7 @@ import 'package:project_order_food/ui/shared/app_color.dart';
 import 'package:project_order_food/ui/view/admin/a_home_view/components/item_category.dart';
 import 'package:project_order_food/ui/widget/a_button.dart';
 
+// Giao diện trang chủ
 class AHomeView extends StatelessWidget {
   const AHomeView({super.key});
 

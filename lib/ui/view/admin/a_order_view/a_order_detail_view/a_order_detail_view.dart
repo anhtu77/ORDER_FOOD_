@@ -11,6 +11,7 @@ import 'package:project_order_food/ui/widget/common_widget/a_appbar.dart';
 import 'package:project_order_food/ui/widget/common_widget/with_spacing.dart';
 import 'package:project_order_food/core/extension/extension.dart';
 
+// Chi tiết đơn hàng
 class AOrderDetailView extends BaseView<AOrderDetailViewController> {
   AOrderDetailView({required OrderModel orderModel, super.key})
       : super(AOrderDetailViewController(order: orderModel));
@@ -45,6 +46,7 @@ class AOrderDetailView extends BaseView<AOrderDetailViewController> {
     );
   }
 
+  // Thông tin chi tiết sản phẩm trong đơn hàng
   Widget cardProduct(OrderDetailModel orderDetail) {
     Product product = orderDetail.product;
     double height = 80;
@@ -99,12 +101,15 @@ class AOrderDetailView extends BaseView<AOrderDetailViewController> {
     return AAppbar(title: 'Chi tiết hóa đơn');
   }
 
+  // Thông tin chi tiết của đơn hàng ở phía dưới danh sách sản phẩm
   Widget infoBottom() {
     return ColumnWithSpacing(
       spacing: 8,
       children: [
         textInfo(label: 'Trạng thái', widget: dropdownPicker()),
-        textInfo(label: 'Thời gian đặt', widget: AText.body(controller.order.createDate)),
+        textInfo(
+            label: 'Thời gian đặt',
+            widget: AText.body(controller.order.createDate)),
         textInfo(
             label: 'Tên người dùng',
             widget: AText.body(controller.infoUser.userName)),
@@ -122,6 +127,7 @@ class AOrderDetailView extends BaseView<AOrderDetailViewController> {
     );
   }
 
+  // Hiển thị dropdown picker để chọn trạng thái của đơn hàng
   Widget dropdownPicker() {
     return DropdownButton(
         value: controller.statusID,
@@ -137,6 +143,7 @@ class AOrderDetailView extends BaseView<AOrderDetailViewController> {
         });
   }
 
+  // Hiển thị thông tin chi tiết đơn hàng
   Widget textInfo({required String label, required Widget widget}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,

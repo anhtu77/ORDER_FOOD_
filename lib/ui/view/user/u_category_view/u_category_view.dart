@@ -11,6 +11,7 @@ import 'package:project_order_food/ui/shared/ui_helpers.dart';
 import 'package:project_order_food/ui/view/user/u_category_view/controller/u_category_view_controller.dart';
 import 'package:project_order_food/ui/widget/common_widget/a_appbar.dart';
 
+// Danh mục sản phẩm và thông tin sản phẩm tương ứng
 class UCategoryView extends BaseView<UCategoryViewController> {
   UCategoryView({super.key}) : super(UCategoryViewController());
 
@@ -83,6 +84,7 @@ class UCategoryView extends BaseView<UCategoryViewController> {
           );
   }
 
+  // Thông tin chi tiết sản phẩm
   Widget cardProduct(Product model) {
     double height = 90;
     return GestureDetector(

@@ -14,12 +14,14 @@ import 'package:project_order_food/ui/router.dart';
 import 'package:project_order_food/ui/view/common_view/loading_view/data_app.dart';
 import 'package:project_order_food/ui/widget/dialog/a_dialog.dart';
 
+// Quản lý giỏ hàng người dùng
 class UCartViewController extends BaseController {
   final CartLocalData _localCart = CartLocalData();
 
   List<Cart> get _listCart => locator<DataApp>().listCart;
   List<Product> get _listProduct => locator<DataApp>().listProduct;
 
+  // Lấy danh sách sản phẩm trong giỏ hàng kèm thông tin giỏ hàng
   List<CartProduct> get listCartProduct {
     List<CartProduct> listCartProduct = [];
     for (final ePro in _listProduct) {
@@ -44,6 +46,7 @@ class UCartViewController extends BaseController {
     return value;
   }
 
+  // Xử lý việc thanh toán
   void checkout() async {
     Map<String, Object> dataOrder = {
       FieldName.totalPrice: tongGia,
@@ -51,10 +54,11 @@ class UCartViewController extends BaseController {
       FieldName.createDate: DateTime.now(),
       FieldName.refID: EStatusOrder.choXacNhan.getInfo.id,
     };
+    // Thêm đơn hàng vào Firebase
     DocumentReference docRef = await FirebaseFirestore.instance
         .collection(BaseTable.order)
         .add(dataOrder);
-
+    // Thêm chi tiết đơn hàng vào Firebase
     Api apiOrderDetail = Api(BaseTable.orderDetail);
     for (var e in _listCart) {
       await apiOrderDetail.addDocument({
@@ -63,7 +67,7 @@ class UCartViewController extends BaseController {
         FieldName.productID: e.refID
       });
     }
-
+    // Xóa dữ liệu giỏ hàng và trở về trang chính
     await _localCart.clearAll().whenComplete(() {
       locator<GetNavigation>().openDialog(
           content: 'Thanh toán thành công',

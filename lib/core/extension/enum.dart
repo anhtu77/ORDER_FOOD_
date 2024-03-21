@@ -8,6 +8,7 @@ enum EStatusOrder {
   daHoanThanh;
 }
 
+//Thông tin đơn hàng
 extension StatusOrderExtension on EStatusOrder {
   StatusOrder get getInfo {
     List<StatusOrder> list = locator<DataApp>().listStatusOdrer;

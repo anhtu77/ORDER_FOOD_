@@ -51,7 +51,7 @@ class DataApp {
       logSuccess('Tải thông tin sản phẩm: ${_listProduct.length}');
     });
   }
- 
+
   Future<void> reloadCategory() async {
     await loadDataCategory().then((value) {
       _listCategoy = value.toListMap().map((e) => Category(e)).toList();
@@ -59,6 +59,7 @@ class DataApp {
     });
   }
 
+  // Tải dữ liệu người dùng
   Future<DocumentSnapshot>? loadDataUser() {
     AuthenticationService service = AuthenticationService();
     if (service.getCurrentUser() != null) {
@@ -94,6 +95,7 @@ class DataApp {
     return UserApp({'email': 'admin@gmail.com', 'password': 'admin'});
   }
 
+  // Khởi tạo dữ liệu ứng dụng
   void initData() async {
     reloadUserData();
 
@@ -104,7 +106,7 @@ class DataApp {
     });
 
     await Future.delayed(const Duration(seconds: 1));
-   await reloadCategory();
+    await reloadCategory();
 
     await Future.delayed(const Duration(seconds: 1));
     await loadDataStatusOrder().then((value) {
@@ -118,6 +120,7 @@ class DataApp {
     completeLoad();
   }
 
+  // Tải dữ liệu thành công
   void completeLoad() {
     String routerPath = user.email == userDefault.email
         ? RoutePaths.aHomeView

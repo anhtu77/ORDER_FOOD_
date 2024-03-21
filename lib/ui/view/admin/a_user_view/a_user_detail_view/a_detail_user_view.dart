@@ -7,6 +7,7 @@ import 'package:project_order_food/ui/shared/ui_helpers.dart';
 import 'package:project_order_food/ui/widget/common_widget/a_appbar.dart';
 import 'package:project_order_food/ui/widget/common_widget/with_spacing.dart';
 
+// Thông tin người dùng
 class ADetailUserView extends StatelessWidget {
   final UserApp user;
 
@@ -21,7 +22,7 @@ class ADetailUserView extends StatelessWidget {
           SizedBox(
               height: 120,
               width: MediaQuery.of(context).size.width,
-              child:Image.asset(AImage.userDefault)),
+              child: Image.asset(AImage.userDefault)),
           UIHelper.verticalSpaceSmall(),
           content()
         ],

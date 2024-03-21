@@ -9,6 +9,7 @@ import 'package:project_order_food/locator.dart';
 import 'package:project_order_food/ui/base_app/base_controller.dart';
 import 'package:project_order_food/ui/base_app/base_table.dart';
 
+// Thêm sản phẩm mới
 class AAddProductViewController extends BaseController {
   String? _title;
   File? _file;

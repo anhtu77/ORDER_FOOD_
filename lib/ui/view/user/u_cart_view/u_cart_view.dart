@@ -15,6 +15,7 @@ import 'package:project_order_food/ui/widget/common_widget/with_spacing.dart';
 import 'package:project_order_food/core/extension/extension.dart';
 import 'package:project_order_food/ui/widget/dialog/a_dialog.dart';
 
+// Giao diện giỏ hàng người dùng
 class UCartView extends BaseView<UCartViewController> {
   UCartView({super.key}) : super(UCartViewController());
 
@@ -147,7 +148,8 @@ class UCartView extends BaseView<UCartViewController> {
                           ),
                         ),
                         UIHelper.horizontalSpaceSmall(),
-                        AText.body(model.product.discountPrice, color: AColor.red),
+                        AText.body(model.product.discountPrice,
+                            color: AColor.red),
                       ],
                     ),
                     //Button

@@ -10,6 +10,7 @@ import 'package:project_order_food/ui/shared/app_color.dart';
 import 'package:project_order_food/ui/view/admin/a_user_view/controllers/a_user_view_controller.dart';
 import 'package:project_order_food/ui/widget/common_widget/a_appbar.dart';
 
+// Hiển thị danh sách người dùng
 class AUserView extends BaseView<AUserViewController> {
   AUserView({super.key}) : super(AUserViewController());
 
@@ -30,10 +31,12 @@ class AUserView extends BaseView<AUserViewController> {
     return AAppbar(title: 'Danh sách người dùng');
   }
 
+  // Hiển thị thông tin người dùng trong danh sách
   Widget userCard(UserApp model) {
     return GestureDetector(
       onTap: () {
-        locator<GetNavigation>().to(RoutePaths.aDetailUserView, arguments: model);
+        locator<GetNavigation>()
+            .to(RoutePaths.aDetailUserView, arguments: model);
       },
       child: Container(
         height: 80,
@@ -44,8 +47,7 @@ class AUserView extends BaseView<AUserViewController> {
         padding: const EdgeInsets.all(8),
         child: Row(
           children: [
-            Expanded(
-                child: Image.asset(AImage.userDefault)),
+            Expanded(child: Image.asset(AImage.userDefault)),
             const SizedBox(width: 8),
             Expanded(
               flex: 2,

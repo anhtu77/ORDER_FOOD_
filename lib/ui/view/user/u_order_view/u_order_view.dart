@@ -10,6 +10,7 @@ import 'package:project_order_food/ui/shared/app_color.dart';
 import 'package:project_order_food/ui/view/user/u_order_view/controller/u_order_view_controller.dart';
 import 'package:project_order_food/ui/widget/common_widget/a_appbar.dart';
 
+// Giao diện danh sách đơn hàng người dùng
 class UOrderView extends BaseView<UOderViewController> {
   UOrderView({super.key}) : super(UOderViewController());
 

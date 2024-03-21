@@ -57,6 +57,7 @@ class ADetailProductViewController extends BaseController {
         listCategory.first;
   }
 
+  // Cập nhật thông tin sản phẩm
   void updateProduct() async {
     Map<String, dynamic> newData = {
       FieldName.title: _title,
@@ -85,6 +86,7 @@ class ADetailProductViewController extends BaseController {
     });
   }
 
+  // Xóa sản phẩm
   void deleteProduct() async {
     await api.removeDocument(product.id).then((value) {
       if (value == null) {

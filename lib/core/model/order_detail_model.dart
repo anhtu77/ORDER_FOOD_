@@ -14,6 +14,7 @@ class OrderDetailModel extends Model {
 
   String get productID => Methods.getString(data, FieldName.productID);
 
+  // Lấy thông tin sản phẩm từ danh sách đã lưu
   Product get product =>
       locator<DataApp>()
           .listProduct

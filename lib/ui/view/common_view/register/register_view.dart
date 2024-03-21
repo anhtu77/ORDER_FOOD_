@@ -8,6 +8,7 @@ import 'package:project_order_food/ui/widget/a_button.dart';
 import 'package:project_order_food/ui/widget/form/a_text_form_field.dart';
 import 'package:project_order_food/core/extension/validation.dart';
 
+// Giao diện đăng ký
 class RegisterView extends StatelessWidget {
   RegisterView({super.key});
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
@@ -46,11 +47,9 @@ class RegisterView extends StatelessWidget {
                   ATextFormField(
                     label: 'Xác nhận mật khẩu',
                     obscureText: true,
-                    validator: (v) =>
-                        v!.isEmpty || v!=controller.password
-                            ? 'Mật khẩu không trùng nhau'
-                            : null,
-  
+                    validator: (v) => v!.isEmpty || v != controller.password
+                        ? 'Mật khẩu không trùng nhau'
+                        : null,
                   ),
                   UIHelper.verticalSpaceMedium(),
                   AButton.text(

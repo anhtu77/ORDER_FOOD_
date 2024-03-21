@@ -9,6 +9,7 @@ import 'package:project_order_food/ui/base_app/base_table.dart';
 import 'package:project_order_food/ui/view/common_view/loading_view/data_app.dart';
 import 'package:project_order_food/ui/widget/dialog/a_dialog.dart';
 
+// Quản lý thông tin hồ sơ người dùng
 class UProfileViewController extends BaseController {
   String? _userName;
   String? _phoneNumber;
@@ -23,6 +24,7 @@ class UProfileViewController extends BaseController {
     _phoneNumber = value;
   }
 
+  // Cập nhật thông tin người dùng
   void updateProfile() async {
     Api api = Api(BaseTable.user);
     Map<String, dynamic> newData = {

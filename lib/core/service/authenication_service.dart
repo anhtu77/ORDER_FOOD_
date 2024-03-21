@@ -21,6 +21,7 @@ abstract class BaseAuth {
   Future<void> sendPasswordResetMail(String email);
 }
 
+// Xác thực thông tin người dùng bằng Firebase Authentication
 class AuthenticationService implements BaseAuth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 

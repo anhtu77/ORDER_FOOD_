@@ -11,6 +11,7 @@ import 'package:project_order_food/ui/widget/form/a_button_form_field.dart';
 import 'package:project_order_food/ui/widget/form/a_text_form_field.dart';
 import 'package:project_order_food/core/extension/validation.dart';
 
+// Giao diện hồ sơ người dùng
 class UProfileView extends BaseView<UProfileViewController> {
   UProfileView({super.key}) : super(UProfileViewController());
 
@@ -41,14 +42,14 @@ class UProfileView extends BaseView<UProfileViewController> {
             label: 'Username',
             initValue: user.userName,
             hintText: 'Nguyễn Nam',
-            onSaved: (v) => controller.userName=v,
+            onSaved: (v) => controller.userName = v,
           ),
           ATextFormField(
               label: 'PhoneNumber',
               hintText: '12345678',
               initValue: user.phoneNumber,
               keyboardType: TextInputType.phone,
-               onSaved: (v) => controller.phoneNumber=v,
+              onSaved: (v) => controller.phoneNumber = v,
               validator: (v) => v!.isEmpty || !v.isValidPhone
                   ? 'Số điện thoại không hợp lệ'
                   : null),

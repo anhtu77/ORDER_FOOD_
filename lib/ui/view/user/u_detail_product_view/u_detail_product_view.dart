@@ -8,6 +8,7 @@ import 'package:project_order_food/ui/view/user/u_detail_product_view/controller
 import 'package:project_order_food/ui/widget/a_button.dart';
 import 'package:project_order_food/ui/widget/common_widget/a_appbar.dart';
 
+// Giao diện thông tin sản phẩm
 class UDetailProductView extends BaseView<UDetailViewController> {
   UDetailProductView({required this.model, super.key})
       : super(UDetailViewController());

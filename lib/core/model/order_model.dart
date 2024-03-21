@@ -15,6 +15,7 @@ class OrderModel extends Model {
 
   Product get product => Methods.getMap(data, FieldName.product);
 
+  // Nhận trạng thái đơn hàng từ danh sách đơn hàng
   StatusOrder get status {
     List<StatusOrder> list = locator<DataApp>().listStatusOdrer;
     for (var e in list) {
@@ -26,6 +27,7 @@ class OrderModel extends Model {
     return list.first;
   }
 
+  // Chuyển thơi gian tạo đơn hàng sang định dạng dd/MM/yyyy - HH:mm
   @override
   String get createDate =>
       Methods.convertTime(Methods.getDateTime(data, FieldName.createDate),

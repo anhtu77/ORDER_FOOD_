@@ -16,6 +16,7 @@ class Api {
   late CollectionReference ref;
   FirebaseStorage storage = FirebaseStorage.instance;
 
+  // Lấy dữ liệu từ bảng
   Future<QuerySnapshot> getDataCollection() {
     return ref.get();
   }
@@ -73,15 +74,12 @@ class Api {
   }
 
   Future<String?> updateDocument(Map data, String id, {File? file}) async {
-    //Conditon file is not null => replace new image
     try {
       if (file != null) {
         try {
-          //Remove file
           String currentDirectory =
               '$pathCollection/${FirebaseStorage.instance.refFromURL(data['img'] as String).name}';
           await storage.ref().child(currentDirectory).delete();
-          //upload new file
 
           String pathFile =
               '$pathCollection/${DateTime.now()}_${basename(file.path)}';
@@ -102,6 +100,7 @@ class Api {
     }
   }
 
+  // Tải lên một tệp vào Firebase Storage và trả về URL tải xuống của tệp đã tải lên
   Future<String> _uploadFile(File file, {required String pathFile}) async {
     UploadTask uploadTask = storage.ref(pathFile).putFile(file);
     String url = await (await uploadTask).ref.getDownloadURL();

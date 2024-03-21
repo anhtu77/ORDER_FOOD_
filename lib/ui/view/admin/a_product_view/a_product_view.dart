@@ -9,6 +9,7 @@ import 'package:project_order_food/ui/shared/app_color.dart';
 import 'package:project_order_food/ui/view/admin/a_product_view/controllers/a_product_view_controller.dart';
 import 'package:project_order_food/ui/widget/common_widget/a_appbar.dart';
 
+// Hiển thị danh sách sản phẩm
 class AProductView extends BaseView<AProductViewController> {
   AProductView({super.key}) : super(AProductViewController());
 
@@ -26,6 +27,7 @@ class AProductView extends BaseView<AProductViewController> {
     );
   }
 
+  // Hiển thị thẻ sản phẩm
   Widget productCard(Product product) {
     return GestureDetector(
       onTap: () {

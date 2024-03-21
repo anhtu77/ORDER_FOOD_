@@ -14,6 +14,7 @@ import 'package:project_order_food/ui/view/user/u_home_view/controllers/u_home_v
 import 'package:project_order_food/ui/widget/common_widget/a_appbar.dart';
 import 'package:project_order_food/ui/widget/common_widget/with_spacing.dart';
 
+// Giao diện trang chủ của người dùng
 class UHomeView extends BaseView<UHomeViewController> {
   UHomeView({super.key}) : super(UHomeViewController());
 

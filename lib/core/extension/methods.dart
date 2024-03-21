@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 import 'extension.dart';
 
+//Lấy giá trị từ map
 extension Find<K, V, R> on Map<K, V> {
   ///Return the string
   R find(K key, R Function(String value) cast, {Object? defaultValue}) {

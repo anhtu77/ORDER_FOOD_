@@ -9,6 +9,7 @@ import 'package:project_order_food/ui/base_app/base_controller.dart';
 import 'package:project_order_food/ui/base_app/base_table.dart';
 import 'package:project_order_food/ui/view/common_view/loading_view/data_app.dart';
 
+// Quản lý danh sách đơn hàng và trạng thái của chúng
 class AOrderViewController extends BaseController {
   final Api _api = Api(BaseTable.order);
 
@@ -32,10 +33,11 @@ class AOrderViewController extends BaseController {
     super.reload();
   }
 
+  // Cập nhật trạng thái đơn hàng
   void updateStatus(String newID) {
     _listOrder.clear();
     _listOrder.addAll(allListOrder);
-    
+
     if (statusID == newID) {
       statusID = null;
     } else {

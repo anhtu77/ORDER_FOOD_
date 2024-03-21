@@ -11,6 +11,7 @@ import 'package:project_order_food/ui/view/user/u_order_view/u_detail_order_view
 import 'package:project_order_food/ui/widget/common_widget/a_appbar.dart';
 import 'package:project_order_food/ui/widget/common_widget/with_spacing.dart';
 
+// Giao diện chi tiết đươn hàng của người dùng
 class UDetailOrderView extends BaseView<UDetailOrderViewController> {
   UDetailOrderView({
     required String orderID,

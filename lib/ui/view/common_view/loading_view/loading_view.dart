@@ -5,6 +5,7 @@ import 'package:project_order_food/ui/shared/app_color.dart';
 import 'package:project_order_food/ui/shared/ui_helpers.dart';
 import 'package:project_order_food/ui/view/common_view/loading_view/data_app.dart';
 
+// Giao diện màn hình tải dữ liệu
 class LoadingView extends StatefulWidget {
   const LoadingView({super.key});
 

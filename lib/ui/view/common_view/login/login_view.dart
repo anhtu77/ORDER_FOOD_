@@ -12,6 +12,7 @@ import 'package:project_order_food/ui/widget/a_button.dart';
 import 'package:project_order_food/ui/widget/form/a_text_form_field.dart';
 import 'package:project_order_food/core/extension/validation.dart';
 
+// Giao diện đang nhập
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
 

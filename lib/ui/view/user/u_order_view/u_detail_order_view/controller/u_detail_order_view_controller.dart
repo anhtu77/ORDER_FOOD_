@@ -4,6 +4,7 @@ import 'package:project_order_food/core/model/order_detail_model.dart';
 import 'package:project_order_food/ui/base_app/base_controller.dart';
 import 'package:project_order_food/ui/base_app/base_table.dart';
 
+// Quản lý dữ liệu và tải chi tiết đơn hàng của người dùng
 class UDetailOrderViewController extends BaseController {
   UDetailOrderViewController({required this.orderID});
   final String orderID;

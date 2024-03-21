@@ -11,6 +11,7 @@ import 'package:project_order_food/ui/shared/ui_helpers.dart';
 import 'package:project_order_food/ui/view/admin/a_order_view/controllers/a_order_view_controller.dart';
 import 'package:project_order_food/ui/widget/common_widget/a_appbar.dart';
 
+// Danh sách đơn hàng
 class AOrderView extends BaseView<AOrderViewController> {
   AOrderView({super.key}) : super(AOrderViewController());
 
@@ -43,6 +44,7 @@ class AOrderView extends BaseView<AOrderViewController> {
     );
   }
 
+  // Hiển thị danh sách trạng thái đơn hàng
   Widget listCategory() {
     return Wrap(
       runSpacing: 8,
@@ -51,6 +53,7 @@ class AOrderView extends BaseView<AOrderViewController> {
     );
   }
 
+  // Hiển thị một trạng thái đơn hàng
   Widget itemStatus(StatusOrder status) {
     bool isSelected = status.id == controller.statusID;
     return GestureDetector(
@@ -71,6 +74,7 @@ class AOrderView extends BaseView<AOrderViewController> {
     );
   }
 
+  // Hiển thị một thẻ đơn hàng
   Widget orderCard(OrderModel model) {
     return GestureDetector(
       onTap: () async {
