@@ -3,6 +3,7 @@ import 'package:project_order_food/core/extension/log.dart';
 import 'package:project_order_food/ui/shared/app_color.dart';
 import 'package:project_order_food/ui/widget/a_button.dart';
 
+// Giao diện nút xác nhận
 class AButtonFormField extends StatelessWidget {
   final GlobalKey<FormState> keyForm;
   final Color? color;
@@ -11,7 +12,7 @@ class AButtonFormField extends StatelessWidget {
   final EdgeInsets? padding;
   final VoidCallback onValidateSuccess;
   final VoidCallback onFailedValidate;
-
+  // Hàm khởi tạo của AButtonFormField
   AButtonFormField(
     this.keyForm, {
     super.key,

@@ -9,13 +9,14 @@ import 'package:project_order_food/ui/view/common_view/loading_view/data_app.dar
 
 class OrderModel extends Model {
   OrderModel(super.data);
-
+  // Lấy tổng giá trị đơn hàng và định dạng thành tiền tệ Việt Nam
   String get totalPrice => Methods.getPriceVND(data, FieldName.totalPrice);
+  // Lấy ID người dùng từ dữ liệu
   String get userID => Methods.getString(data, FieldName.userID);
-
+  // Lấy thông tin sản phẩm từ dữ liệu
   Product get product => Methods.getMap(data, FieldName.product);
 
-  // Nhận trạng thái đơn hàng từ danh sách đơn hàng
+  // Nhận trạng thái đơn hàng từ danh sách trạng thái đơn hàng
   StatusOrder get status {
     List<StatusOrder> list = locator<DataApp>().listStatusOdrer;
     for (var e in list) {
@@ -27,7 +28,7 @@ class OrderModel extends Model {
     return list.first;
   }
 
-  // Chuyển thơi gian tạo đơn hàng sang định dạng dd/MM/yyyy - HH:mm
+  // Chuyển thời gian tạo đơn hàng sang định dạng dd/MM/yyyy - HH:mm
   @override
   String get createDate =>
       Methods.convertTime(Methods.getDateTime(data, FieldName.createDate),

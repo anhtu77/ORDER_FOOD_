@@ -12,8 +12,10 @@ import 'package:project_order_food/ui/shared/app_color.dart';
 import 'package:project_order_food/ui/shared/ui_helpers.dart';
 import 'package:project_order_food/ui/widget/a_button.dart';
 
+// enum định nghĩa các lựa chọn khi chọn ảnh từ camera hoặc thư viện ảnh
 enum _OptionPickerImage { camera, galley }
 
+// Lớp APickerFormField là một FormField<File> được sử dụng để chọn và tải ảnh lên từ camera hoặc thư viện
 class APickerFormField extends FormField<File> {
   APickerFormField({
     super.key,
@@ -41,6 +43,7 @@ class APickerFormField extends FormField<File> {
   FormFieldState<File> createState() => _ButtonPickerImageFormFieldState();
 }
 
+// Lớp _ButtonPickerImageFormFieldState là một FormFieldState<File> để quản lý trạng thái của APickerFormField
 class _ButtonPickerImageFormFieldState extends FormFieldState<File> {
   @override
   FormField<File> get widget => super.widget;
@@ -50,6 +53,7 @@ class _ButtonPickerImageFormFieldState extends FormFieldState<File> {
     super.didChange(value);
   }
 
+  // Phương thức để tải ảnh từ url và trả về dưới dạng File
   Widget loadFile(String url, {required FormFieldState<File> state}) {
     return FutureBuilder(
         future: getImageXFileByUrl(url),
@@ -72,6 +76,7 @@ class _ButtonPickerImageFormFieldState extends FormFieldState<File> {
         });
   }
 
+  // Phương thức để chọn và tải ảnh từ camera hoặc thư viện
   Future<File> getImageXFileByUrl(
     String url,
   ) async {
@@ -94,7 +99,7 @@ class _ItemButtonPicker extends StatelessWidget {
   const _ItemButtonPicker(this.state);
 
   final FormFieldState<File> state;
-
+  // Phương thức để tải và cập nhật ảnh dựa trên lựa chọn từ camera hoặc thư viện
   Future<void> upload(
       {required _OptionPickerImage optionPicker,
       required FormFieldState<File> state,
@@ -129,6 +134,7 @@ class _ItemButtonPicker extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // Nút để mở modal bottom sheet và chọn ảnh từ camera hoặc thư viện
         AButton(
           isExpanded: true,
           onPressed: () {
@@ -147,6 +153,7 @@ class _ItemButtonPicker extends StatelessWidget {
                               state: state);
                         },
                       ),
+                      // ListTile để chọn ảnh từ thư viện
                       ListTile(
                         leading: const Icon(Icons.library_add),
                         title: const Text('Gallery'),

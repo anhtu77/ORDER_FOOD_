@@ -4,7 +4,7 @@ import 'package:project_order_food/core/service/get_navigation.dart';
 import 'package:project_order_food/locator.dart';
 
 extension CallBackAPI on String? {
-  //Đúng thì quay vè màn hình trước dó không thì thông báo
+  // Quay về màn hình trước nếu chuỗi là null, ngược lại hiển thị thông báo
   void backOrNotification() {
     if (this == null) {
       locator<GetNavigation>().back();
@@ -15,7 +15,7 @@ extension CallBackAPI on String? {
 }
 
 extension QuerySnapshotToList on QuerySnapshot<Object?>? {
-  //Đúng thì quay vè màn hình trước dó không thì thông báo
+  // Chuyển đổi dữ liệu từ QuerySnapshot thành danh sách các Map
   List<Map<String, dynamic>> toListMap() {
     List<Map<String, dynamic>> temp = [];
     if (this != null) {
@@ -30,6 +30,7 @@ extension QuerySnapshotToList on QuerySnapshot<Object?>? {
 }
 
 extension FormatCurrencyEx on dynamic {
+  // Định dạng số thành chuỗi tiền tệ Việt Nam
   String toVND({String? unit = 'đ'}) {
     int number = int.parse(toString());
     var vietNamFormatCurrency =

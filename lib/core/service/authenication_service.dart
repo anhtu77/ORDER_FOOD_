@@ -4,20 +4,21 @@ import 'package:project_order_food/core/service/get_navigation.dart';
 import 'package:project_order_food/locator.dart';
 
 abstract class BaseAuth {
+  // Phương thức đăng nhập bằng email và mật khẩu
   Future<String?> signIn(String email, String password);
-
+  // Phương thức đăng ký tài khoản mới bằng email và mật khẩu
   Future<UserCredential?> signUp(String email, String password);
-
+  // Phương thức lấy thông tin người dùng hiện tại
   User? getCurrentUser();
-
+  // Phương thức đăng xuất người dùng hiện tại
   Future<void> signOut();
-
+  // Phương thức kiểm tra xem email của người dùng có được xác minh chưa
   Future<bool> isEmailVerified();
-
+  // Phương thức thay đổi email của người dùng
   Future<String?> changeEmail(String email);
-
+  // Phương thức thay đổi mật khẩu của người dùng
   Future<void> changePassword(String password);
-
+  // Phương thức gửi email để đặt lại mật khẩu
   Future<void> sendPasswordResetMail(String email);
 }
 

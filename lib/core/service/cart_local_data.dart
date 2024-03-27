@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class CartLocalData {
   Future<void> loadDataCart() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
+    // Nếu sản phẩm không tồn tại trong giỏ hàng với "refID" là "productID" và "quantity" là 1 sau đó thêm vào giỏ hàng
     if (pref.getString('cart') != null) {
       String strCart = pref.getString('cart')!;
       locator<DataApp>().listCart = Cart.decode(strCart);
@@ -50,11 +51,15 @@ class CartLocalData {
     for (int i = 0; i < locator<DataApp>().listCart.length; i++) {
       if (locator<DataApp>().listCart[i].refID == productID) {
         Cart cart = locator<DataApp>().listCart[i];
+        // Nếu mặt hàng tồn tại và số lượng lớn hơn 1, nó giảm số lượng của mặt hàng đó đi 1.
         if (cart.quantity > 1) {
           locator<DataApp>().listCart[i] =
               Cart(refID: cart.refID, quantity: cart.quantity - 1);
           locator<DataApp>().listCart[i] = locator<DataApp>().listCart[i];
-        } else {
+        }
+        // Nếu số lượng của mặt hàng là 1, nó mở một hộp thoại hỏi người dùng có muốn xóa mặt hàng đó ra khỏi giỏ hàng không.
+        // Nếu người dùng đồng ý, nó xóa mặt hàng đó ra khỏi danh sách.
+        else {
           await locator<GetNavigation>().openDialog(
               typeDialog: TypeDialog.ask,
               onSubmit: () {
@@ -75,11 +80,14 @@ class CartLocalData {
 
   ///Xóa hết
   Future<void> clearAllDialog() async {
+    // Nếu giỏ hàng trống, nó hiển thị một hộp thoại cảnh báo.
     if (locator<DataApp>().listCart.isEmpty) {
       locator<GetNavigation>().openDialog(
           typeDialog: TypeDialog.waring,
           content: 'Hiện bạn không có món ăn nào trong giỏ hàng');
-    } else {
+    }
+    // Nếu không, nó mở một hộp thoại hỏi người dùng có muốn xóa tất cả các mặt hàng ra khỏi giỏ hàng không.
+    else {
       await locator<GetNavigation>().openDialog(
           typeDialog: TypeDialog.ask,
           onSubmit: () async {
@@ -91,6 +99,7 @@ class CartLocalData {
     }
   }
 
+  // Phương thức này được sử dụng để xóa tất cả các mặt hàng ra khỏi giỏ hàng mà không cần xác nhận từ người dùng.
   Future<void> clearAll() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     locator<DataApp>().listCart.clear();

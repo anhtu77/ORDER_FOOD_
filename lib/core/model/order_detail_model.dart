@@ -9,9 +9,9 @@ import 'package:project_order_food/ui/view/common_view/loading_view/data_app.dar
 
 class OrderDetailModel extends Model {
   OrderDetailModel(super.data);
-
+  // Lấy số lượng từ dữ liệu
   int get quantity => Methods.getInt(data, FieldName.quantity);
-
+  // Lấy ID sản phẩm từ dữ liệu
   String get productID => Methods.getString(data, FieldName.productID);
 
   // Lấy thông tin sản phẩm từ danh sách đã lưu

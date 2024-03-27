@@ -12,8 +12,11 @@ class Api {
   Api(this.pathCollection) {
     ref = FirebaseFirestore.instance.collection(pathCollection);
   }
+  // Đường dẫn tới collection trong Firestore
   final String pathCollection;
+  // Tham chiếu tới collection trong Firestore
   late CollectionReference ref;
+  // Đối tượng lưu trữ Firebase
   FirebaseStorage storage = FirebaseStorage.instance;
 
   // Lấy dữ liệu từ bảng
@@ -21,14 +24,17 @@ class Api {
     return ref.get();
   }
 
+  // Lấy stream dữ liệu từ collection
   Stream<QuerySnapshot> streamDataCollection() {
     return ref.snapshots();
   }
 
+  // Lấy document từ collection dựa trên ID
   Future<DocumentSnapshot> getDocumentById(String id) {
     return ref.doc(id).get();
   }
 
+  // Xóa document từ collection dựa trên ID
   Future<String?> removeDocument(String id) async {
     try {
       await ref.doc(id).delete();
@@ -40,6 +46,7 @@ class Api {
     }
   }
 
+  // Thêm document vào collection
   Future<String?> addDocument(Map data, {File? file, String? customID}) async {
     if (file != null) {
       String pathFile =
@@ -53,7 +60,7 @@ class Api {
         logError('Upload file không thành công: $e');
       }
     }
-
+    // Thêm dữ liệu vào Firestore
     try {
       Map<String, Object> newData = Map.from({
         ...data,
@@ -73,8 +80,10 @@ class Api {
     }
   }
 
+  // Cập nhật document trong collection dựa trên ID
   Future<String?> updateDocument(Map data, String id, {File? file}) async {
     try {
+      // Nếu có file được đính kèm, xóa file cũ và upload file mới
       if (file != null) {
         try {
           String currentDirectory =
