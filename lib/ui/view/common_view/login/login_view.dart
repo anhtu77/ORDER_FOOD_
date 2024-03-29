@@ -62,7 +62,7 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   UIHelper.verticalSpaceMedium(),
                   ATextFormField(
-                    label: 'Mât khẩu',
+                    label: 'Mật khẩu',
                     obscureText: true,
                     onSaved: (v) => controller.password = v,
                   ),

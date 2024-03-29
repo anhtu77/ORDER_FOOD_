@@ -27,7 +27,7 @@ class RegisterView extends StatelessWidget {
               key: _key,
               child: Column(
                 children: [
-                  AText.body('TOMOTOZ'),
+                  AText.body('ORDER FOOD'),
                   UIHelper.verticalSpaceLarge(),
                   ATextFormField(
                     label: 'Email',
